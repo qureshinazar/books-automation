@@ -72,29 +72,6 @@ To fetch data from a Google Sheet, you need to enable the Google Sheets API and 
 
 ---
 
-### Example: Authenticating with Google Sheets API
-
-```python
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-import json
-import os
-
-# Google Sheets API setup
-SCOPE = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-
-# Read Google credentials from environment variable
-GOOGLE_CREDENTIALS = json.loads(os.environ['GOOGLE_CREDENTIALS'])
-CREDS = ServiceAccountCredentials.from_json_keyfile_dict(GOOGLE_CREDENTIALS, SCOPE)
-client = gspread.authorize(CREDS)
-
-# Open the Google Sheet by ID
-SHEET_ID = "YOUR_SHEET_ID"  # Replace with your actual Sheet ID
-sheet = client.open_by_key(SHEET_ID).sheet1
-```
-
----
-
 ### Step 7: Add Credentials to GitHub Secrets (for GitHub Actions)
 
 1. Go to your GitHub repository.
@@ -110,6 +87,79 @@ sheet = client.open_by_key(SHEET_ID).sheet1
 1. Run the Python script locally to ensure it can access the Google Sheet.
 2. Check that the `data.json` file is created/updated with the correct data.
 
+### Example: Authenticating with Google Sheets API
+
+```python
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+import json
+
+# Google Sheets API setup
+SCOPE = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+
+# Paste your Google credentials here
+GOOGLE_CREDENTIALS = {
+    "type": "service_account",
+    "project_id": "your-project-id",
+    "private_key_id": "your-private-key-id",
+    "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n",
+    "client_email": "your-service-account-email@your-project-id.iam.gserviceaccount.com",
+    "client_id": "your-client-id",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email%40your-project-id.iam.gserviceaccount.com"
+}
+
+
+# Authenticate using the credentials
+CREDS = ServiceAccountCredentials.from_json_keyfile_dict(GOOGLE_CREDENTIALS, SCOPE)
+client = gspread.authorize(CREDS)
+
+# Open the Google Sheet by ID or name
+sheet = client.open_by_key("1QiDkMOz-xppKFG5UEf-zMbuE5_0yZFhorALU-mbfn8w").sheet1  # Replace with your Sheet ID or use client.open("Sheet Name")
+
+# Fetch all records
+records = sheet.get_all_records()
+
+# Format the data
+books = []
+for record in records:
+    books.append({
+        "title": record["Title"],
+        "pdf_url": record["PDF URL"],
+        "author": record["Author"],
+        "category": record["Category"]
+    })
+
+data = {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": ["books"],
+    "properties": {
+        "books": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["title", "pdf_url"],
+                "properties": {
+                    "title": {"type": "string"},
+                    "pdf_url": {"type": "string", "format": "uri"},
+                    "author": {"type": "string"},
+                    "category": {"type": "string"}
+                }
+            }
+        }
+    },
+    "books": books
+}
+
+# Write to data.json
+with open('data.json', 'w') as f:
+    json.dump(data, f, indent=4)
+
+print("data.json updated successfully")
+```
 ---
 
 ## Troubleshooting
