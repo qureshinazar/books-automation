@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "books"
+    ],
+    "properties": {
+        "books": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "title",
+                    "pdf_url"
+                ],
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "pdf_url": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "author": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "books": [
+        {
+            "title": "Dispensing of interviews/oral test/viva-voce/interview for the posts",
+            "pdf_url": "https://www.jkgad.nic.in/common/showOrder.aspx?actCode=S44214",
+            "author": "GAD",
+            "category": "Non-Fiction"
+        }
+    ]
+}
