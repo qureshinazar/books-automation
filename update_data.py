@@ -12,7 +12,7 @@ CREDS = ServiceAccountCredentials.from_json_keyfile_dict(GOOGLE_CREDENTIALS, SCO
 client = gspread.authorize(CREDS)
 
 # Open the Google Sheet by ID or name
-sheet = client.open_by_key("YOUR_SHEET_ID").sheet1  # Replace with your Sheet ID or use client.open("Sheet Name")
+sheet = client.open_by_key("1QiDkMOz-xppKFG5UEf-zMbuE5_0yZFhorALU-mbfn8w").sheet1  # Replace with your Sheet ID or use client.open("Sheet Name")
 
 # Fetch all records
 records = sheet.get_all_records()
