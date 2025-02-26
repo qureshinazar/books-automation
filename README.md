@@ -12,7 +12,6 @@ This repository automatically fetches data from a Google Sheet and updates a `da
 2. Update the `update_data.py` script with your Google Sheet ID.
 3. The workflow will run automatically every day at midnight (UTC).
 
-
 ## Setting Up Google Sheets API
 
 To fetch data from a Google Sheet, you need to enable the Google Sheets API and create credentials for authentication. Follow these steps to set up the Google Sheets API:
@@ -75,8 +74,6 @@ To fetch data from a Google Sheet, you need to enable the Google Sheets API and 
 
 ### Example: Authenticating with Google Sheets API
 
-Here’s how you can authenticate using the credentials in your Python script:
-
 ```python
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -94,6 +91,9 @@ client = gspread.authorize(CREDS)
 # Open the Google Sheet by ID
 SHEET_ID = "YOUR_SHEET_ID"  # Replace with your actual Sheet ID
 sheet = client.open_by_key(SHEET_ID).sheet1
+```
+
+---
 
 ### Step 7: Add Credentials to GitHub Secrets (for GitHub Actions)
 
@@ -103,10 +103,14 @@ sheet = client.open_by_key(SHEET_ID).sheet1
    - **Name**: `GOOGLE_CREDENTIALS`
    - **Value**: Paste the entire content of the JSON credentials file.
 
+---
+
 ## Step 8: Verify Access
 
 1. Run the Python script locally to ensure it can access the Google Sheet.
 2. Check that the `data.json` file is created/updated with the correct data.
+
+---
 
 ## Troubleshooting
 
@@ -117,4 +121,5 @@ sheet = client.open_by_key(SHEET_ID).sheet1
 - **Error: Invalid Credentials**
   - Double-check the JSON credentials file and ensure it’s correctly set as an environment variable.
 
-By following these steps, you can successfully set up the Google Sheets API and integrate it with your project. 
+By following these steps, you can successfully set up the Google Sheets API and integrate it with your project.
+
