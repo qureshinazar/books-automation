@@ -11,3 +11,110 @@ This repository automatically fetches data from a Google Sheet and updates a `da
 1. Add your Google credentials as a secret (`GOOGLE_CREDENTIALS`) in the repository settings.
 2. Update the `update_data.py` script with your Google Sheet ID.
 3. The workflow will run automatically every day at midnight (UTC).
+
+
+## Setting Up Google Sheets API
+
+To fetch data from a Google Sheet, you need to enable the Google Sheets API and create credentials for authentication. Follow these steps to set up the Google Sheets API:
+
+---
+
+### Step 1: Create a Google Cloud Project
+
+1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
+2. Click on the project dropdown at the top of the page and select **New Project**.
+3. Give your project a name (e.g., `Books Automation`) and click **Create**.
+
+---
+
+### Step 2: Enable Google Sheets API and Google Drive API
+
+1. In the Google Cloud Console, navigate to **APIs & Services > Library**.
+2. Search for **Google Sheets API** and click on it.
+3. Click **Enable** to enable the API for your project.
+4. Repeat the process for the **Google Drive API**:
+   - Search for **Google Drive API** and click on it.
+   - Click **Enable**.
+
+---
+
+### Step 3: Create a Service Account
+
+1. Go to **APIs & Services > Credentials**.
+2. Click **Create Credentials** and select **Service Account**.
+3. Give your service account a name (e.g., `books-automation`).
+4. Assign the **Editor** role to the service account.
+5. Click **Continue** and then **Done**.
+
+---
+
+### Step 4: Generate and Download Credentials
+
+1. In the **Credentials** tab, find your service account and click on it.
+2. Go to the **Keys** tab and click **Add Key > Create New Key**.
+3. Select **JSON** as the key type and click **Create**.
+4. A JSON file containing your credentials will be downloaded. Save this file securely.
+
+---
+
+### Step 5: Share the Google Sheet with the Service Account
+
+1. Open your Google Sheet.
+2. Click the **Share** button.
+3. Add the email address of your service account (found in the JSON file) as an **Editor**.
+4. Click **Send**.
+
+---
+
+### Step 6: Use the Credentials in Your Project
+
+1. Add the JSON credentials file to your project or use its content as an environment variable.
+2. In the Python script, use the `gspread` library to authenticate with the Google Sheets API using the credentials.
+
+---
+
+### Example: Authenticating with Google Sheets API
+
+Here’s how you can authenticate using the credentials in your Python script:
+
+```python
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+import json
+import os
+
+# Google Sheets API setup
+SCOPE = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+
+# Read Google credentials from environment variable
+GOOGLE_CREDENTIALS = json.loads(os.environ['GOOGLE_CREDENTIALS'])
+CREDS = ServiceAccountCredentials.from_json_keyfile_dict(GOOGLE_CREDENTIALS, SCOPE)
+client = gspread.authorize(CREDS)
+
+# Open the Google Sheet by ID
+SHEET_ID = "YOUR_SHEET_ID"  # Replace with your actual Sheet ID
+sheet = client.open_by_key(SHEET_ID).sheet1
+
+### Step 7: Add Credentials to GitHub Secrets (for GitHub Actions)
+
+1. Go to your GitHub repository.
+2. Navigate to **Settings** > **Secrets and variables** > **Actions**.
+3. Add a new secret:
+   - **Name**: `GOOGLE_CREDENTIALS`
+   - **Value**: Paste the entire content of the JSON credentials file.
+
+## Step 8: Verify Access
+
+1. Run the Python script locally to ensure it can access the Google Sheet.
+2. Check that the `data.json` file is created/updated with the correct data.
+
+## Troubleshooting
+
+- **Error: SpreadsheetNotFound**
+  - Ensure the Sheet ID is correct and the service account has access to the Google Sheet.
+- **Error: Permission Denied**
+  - Verify the service account has Editor access to the Google Sheet.
+- **Error: Invalid Credentials**
+  - Double-check the JSON credentials file and ensure it’s correctly set as an environment variable.
+
+By following these steps, you can successfully set up the Google Sheets API and integrate it with your project. 
