@@ -10,7 +10,7 @@ This repository automatically fetches data from a Google Sheet and updates a `da
 ## Setup
 1. Add your Google credentials as a secret (`GOOGLE_CREDENTIALS`) in the repository settings.
 2. Update the `update_data.py` script with your Google Sheet ID.
-3. The workflow will run automatically every  3 hours
+3. The workflow will run automatically every month
 
 ## Setting Up Google Sheets API
 
