@@ -16,7 +16,7 @@
                     "Timestamp": {
                         "type": "string"
                     },
-                    "Title": {
+                    "DATA": {
                         "type": "string"
                     },
                     "PDF URL": {
@@ -38,7 +38,7 @@
     "data": [
         {
             "Timestamp": "08/03/2025 12:05:27",
-            "Title": "TEST",
+            "DATA": "TEST",
             "PDF URL": "https://pdfobject.com/pdf/sample.pdf",
             "Author": "TEST",
             "Category": "Order",
@@ -46,7 +46,7 @@
         },
         {
             "Timestamp": "26/02/2025 19:46:04",
-            "Title": "Notice regarding Issuance of Admit Cards to the candidates for Written Examination for various posts scheduled to be held from 02.03.2025 to 09.03.2025.",
+            "DATA": "Notice regarding Issuance of Admit Cards to the candidates for Written Examination for various posts scheduled to be held from 02.03.2025 to 09.03.2025.",
             "PDF URL": "https://jkssb.nic.in/Pdf/Issuance_of_Admit_Cards_25022025.pdf",
             "Author": "JKSSB",
             "Category": "Notification",
@@ -54,7 +54,7 @@
         },
         {
             "Timestamp": "26/02/2025 17:56:18",
-            "Title": "No Oral Test",
+            "DATA": "No Oral Test",
             "PDF URL": "https://drive.google.com/file/d/1ZIwL9a66tr11Rv12XMWpUTR37Jo1_hPV/view?usp=sharing",
             "Author": "GAD",
             "Category": "SO/SRO",
@@ -62,7 +62,7 @@
         },
         {
             "Timestamp": "26/02/2025 17:31:34",
-            "Title": "Notice regarding Rescheduling of Examination for the various posts.",
+            "DATA": "Notice regarding Rescheduling of Examination for the various posts.",
             "PDF URL": "https://jkssb.nic.in/Pdf/Re_scheduling_of_Examination_18032025_25022025.pdf",
             "Author": "JKSSB",
             "Category": "Notification",
@@ -70,7 +70,7 @@
         },
         {
             "Timestamp": "26/02/2025 17:30:11",
-            "Title": "Written Examination for the post of Laboratory Technician, Health & Medical Education Department held on 25.02.2025",
+            "DATA": "Written Examination for the post of Laboratory Technician, Health & Medical Education Department held on 25.02.2025",
             "PDF URL": "https://jkssb.nic.in/Pdf/Provisional_Answer_Key_Laboratory_Technician_25022025.pdf",
             "Author": "JKSSB",
             "Category": "Notification",
@@ -78,7 +78,7 @@
         },
         {
             "Timestamp": "26/02/2025 17:05:52",
-            "Title": "Amendment in the Jammu and Kashmir Combined Competitive Examination Rules 2018",
+            "DATA": "Amendment in the Jammu and Kashmir Combined Competitive Examination Rules 2018",
             "PDF URL": "https://www.jkgad.nic.in/common/showOrder.aspx?actCode=S44048",
             "Author": "JKGAD",
             "Category": "Notification",
@@ -86,7 +86,7 @@
         },
         {
             "Timestamp": "26/02/2025 15:48:32",
-            "Title": "Dispensing of interviews/oral test/viva-voce/interview for the posts",
+            "DATA": "Dispensing of interviews/oral test/viva-voce/interview for the posts",
             "PDF URL": "https://www.jkgad.nic.in/common/showOrder.aspx?actCode=S44214",
             "Author": "GAD",
             "Category": "Notification",
