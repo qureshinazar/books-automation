@@ -2,88 +2,95 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "required": [
-        "books"
+        "data"
     ],
     "properties": {
-        "books": {
+        "data": {
             "type": "array",
             "items": {
                 "type": "object",
                 "required": [
-                    "title",
-                    "pdf_url",
-                    "uuid"
+                    "UUID"
                 ],
                 "properties": {
-                    "title": {
+                    "Timestamp": {
                         "type": "string"
                     },
-                    "pdf_url": {
-                        "type": "string",
-                        "format": "uri"
-                    },
-                    "author": {
+                    "Title": {
                         "type": "string"
                     },
-                    "category": {
+                    "PDF URL": {
                         "type": "string"
                     },
-                    "uuid": {
+                    "Author": {
+                        "type": "string"
+                    },
+                    "Category": {
+                        "type": "string"
+                    },
+                    "UUID": {
                         "type": "string"
                     }
                 }
             }
         }
     },
-    "books": [
+    "data": [
         {
-            "title": "TEST",
-            "author": "TEST",
-            "category": "Order",
-            "pdf_url": "https://pdfobject.com/pdf/sample.pdf",
-            "uuid": "86a7e227-f63e-4ede-b386-515cb80386ea"
+            "Timestamp": "08/03/2025 12:05:27",
+            "Title": "TEST",
+            "PDF URL": "https://pdfobject.com/pdf/sample.pdf",
+            "Author": "TEST",
+            "Category": "Order",
+            "UUID": "86a7e227-f63e-4ede-b386-515cb80386ea"
         },
         {
-            "title": "Notice regarding Issuance of Admit Cards to the candidates for Written Examination for various posts scheduled to be held from 02.03.2025 to 09.03.2025.",
-            "author": "JKSSB",
-            "category": "Notification",
-            "pdf_url": "https://jkssb.nic.in/Pdf/Issuance_of_Admit_Cards_25022025.pdf",
-            "uuid": "0fa39110-55d3-42ef-96c4-efc97de9628d"
+            "Timestamp": "26/02/2025 19:46:04",
+            "Title": "Notice regarding Issuance of Admit Cards to the candidates for Written Examination for various posts scheduled to be held from 02.03.2025 to 09.03.2025.",
+            "PDF URL": "https://jkssb.nic.in/Pdf/Issuance_of_Admit_Cards_25022025.pdf",
+            "Author": "JKSSB",
+            "Category": "Notification",
+            "UUID": "0fa39110-55d3-42ef-96c4-efc97de9628d"
         },
         {
-            "title": "No Oral Test",
-            "author": "GAD",
-            "category": "SO/SRO",
-            "pdf_url": "https://drive.google.com/file/d/1ZIwL9a66tr11Rv12XMWpUTR37Jo1_hPV/view?usp=sharing",
-            "uuid": "829d860f-5de2-4bc4-884d-9f3c3a599aff"
+            "Timestamp": "26/02/2025 17:56:18",
+            "Title": "No Oral Test",
+            "PDF URL": "https://drive.google.com/file/d/1ZIwL9a66tr11Rv12XMWpUTR37Jo1_hPV/view?usp=sharing",
+            "Author": "GAD",
+            "Category": "SO/SRO",
+            "UUID": "829d860f-5de2-4bc4-884d-9f3c3a599aff"
         },
         {
-            "title": "Notice regarding Rescheduling of Examination for the various posts.",
-            "author": "JKSSB",
-            "category": "Notification",
-            "pdf_url": "https://jkssb.nic.in/Pdf/Re_scheduling_of_Examination_18032025_25022025.pdf",
-            "uuid": "8c70082e-c2eb-4d13-98fe-5708624bc90d"
+            "Timestamp": "26/02/2025 17:31:34",
+            "Title": "Notice regarding Rescheduling of Examination for the various posts.",
+            "PDF URL": "https://jkssb.nic.in/Pdf/Re_scheduling_of_Examination_18032025_25022025.pdf",
+            "Author": "JKSSB",
+            "Category": "Notification",
+            "UUID": "8c70082e-c2eb-4d13-98fe-5708624bc90d"
         },
         {
-            "title": "Written Examination for the post of Laboratory Technician, Health & Medical Education Department held on 25.02.2025 ",
-            "author": "JKSSB",
-            "category": "Notification",
-            "pdf_url": "https://jkssb.nic.in/Pdf/Provisional_Answer_Key_Laboratory_Technician_25022025.pdf",
-            "uuid": "8c70082e-c2eb-4d13-98fe-5708624bc90d"
+            "Timestamp": "26/02/2025 17:30:11",
+            "Title": "Written Examination for the post of Laboratory Technician, Health & Medical Education Department held on 25.02.2025",
+            "PDF URL": "https://jkssb.nic.in/Pdf/Provisional_Answer_Key_Laboratory_Technician_25022025.pdf",
+            "Author": "JKSSB",
+            "Category": "Notification",
+            "UUID": "8c70082e-c2eb-4d13-98fe-5708624bc90d"
         },
         {
-            "title": "Amendment in the Jammu and Kashmir Combined Competitive Examination Rules 2018",
-            "author": "JKGAD",
-            "category": "Notification",
-            "pdf_url": "https://www.jkgad.nic.in/common/showOrder.aspx?actCode=S44048",
-            "uuid": "8c70082e-c2eb-4d13-98fe-5708624bc90d"
+            "Timestamp": "26/02/2025 17:05:52",
+            "Title": "Amendment in the Jammu and Kashmir Combined Competitive Examination Rules 2018",
+            "PDF URL": "https://www.jkgad.nic.in/common/showOrder.aspx?actCode=S44048",
+            "Author": "JKGAD",
+            "Category": "Notification",
+            "UUID": "8c70082e-c2eb-4d13-98fe-5708624bc90d"
         },
         {
-            "title": "Dispensing of interviews/oral test/viva-voce/interview for the posts",
-            "author": "GAD",
-            "category": "Notification",
-            "pdf_url": "https://www.jkgad.nic.in/common/showOrder.aspx?actCode=S44214",
-            "uuid": "f70ddd84-0c27-4cc5-9344-a6f5e65560c4"
+            "Timestamp": "26/02/2025 15:48:32",
+            "Title": "Dispensing of interviews/oral test/viva-voce/interview for the posts",
+            "PDF URL": "https://www.jkgad.nic.in/common/showOrder.aspx?actCode=S44214",
+            "Author": "GAD",
+            "Category": "Notification",
+            "UUID": "f70ddd84-0c27-4cc5-9344-a6f5e65560c4"
         }
     ]
 }
