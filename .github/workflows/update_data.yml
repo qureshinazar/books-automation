@@ -2,8 +2,8 @@ name: Update data.json
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # Runs every 3 hours
-  workflow_dispatch:        # Allows manual triggering
+    - cron: '0 0 1 * *'  # Runs at 00:00 (midnight) on the 1st day of every month
+  workflow_dispatch:      # Allows manual triggering
 
 permissions:
   contents: write  # Grant write access to the repository
