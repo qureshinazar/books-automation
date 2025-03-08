@@ -32,7 +32,17 @@ jobs:
       run: |
         python update_data.py
 
+    - name: Check for changes
+      id: changes
+      run: |
+        if git diff --quiet; then
+          echo "::set-output name=changes::false"
+        else
+          echo "::set-output name=changes::true"
+        fi
+
     - name: Commit and push changes
+      if: steps.changes.outputs.changes == 'true'
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
