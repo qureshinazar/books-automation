@@ -37,6 +37,13 @@
     },
     "books": [
         {
+            "title": "TEST",
+            "author": "TEST",
+            "category": "Order",
+            "pdf_url": "https://pdfobject.com/pdf/sample.pdf",
+            "uuid": "86a7e227-f63e-4ede-b386-515cb80386ea"
+        },
+        {
             "title": "Notice regarding Issuance of Admit Cards to the candidates for Written Examination for various posts scheduled to be held from 02.03.2025 to 09.03.2025.",
             "author": "JKSSB",
             "category": "Notification",
